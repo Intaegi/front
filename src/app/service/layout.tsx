@@ -19,6 +19,7 @@ export default function ProductsLayout({
         <Link href="/service/all">All</Link>
         <Link href="/service/project">Project</Link>
         <Link href="/service/study">Study</Link>
+        <Link href="/service/register">register</Link>
       </nav>
       <section> {children}</section>
     </div>
