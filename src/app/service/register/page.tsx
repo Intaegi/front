@@ -1,189 +1,230 @@
-import React from "react";
-import "./style.css";
-import { styled, alpha } from "@mui/material/styles";
 
-export default function Register() {
+'use client';
+
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+import Step from './component/Step.js';
+
+// TODO remove, this demo shouldn't need to reset the theme.
+// const defaultTheme = createTheme();
+
+export default function SignUp() {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value as string);
+  };
+
   return (
-    <div className="element">
-      <div className="element-x">
-        <div className="overlap">
-          <footer className="footer">
-            <div className="overlap-group">
-              <div className="text-wrapper">テキスト</div>
-              <div className="text-wrapper-2">テキスト</div>
-              <div className="text-wrapper-3">テキスト</div>
-              <div className="text-wrapper-4">テキスト</div>
-              <p className="contact-team-hola">
-                CONTACT
-                <br />
-                TEAM.HOLA.OFFICIAL@GMAIL.COM
-                <br />
-                COPYRIGHT HOLA. ALL RIGHTS RESERVED
-              </p>
-              <div className="text-wrapper-5">MY-TOY</div>
-            </div>
-          </footer>
-          <div className="to-top-btn">
-            {/* <Icon
-              className="icon-instance"
-              icon={<ExpandLessFilled className="expand-less-filled" color="#FFF500" />}
-              size="large"
-              type="SVG-icon"
-            /> */}
-            <div className="min-width" />
-          </div>
-        </div>
-        <div className="text-input-content">
-          <div className="head-title-underline">
-            <div className="overlap-group-2">
-              {/* <DividerHorizontal className="head-title-underline" divider="image.svg" /> */}
-              <div className="text-input">
-                <div className="text-wrapper-6">タイトル</div>
-              </div>
-              <div className="input">
-                <div className="content">
-                  <div className="text-wrapper-7">タイトル</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="register-button">
-            <div className="base-wrapper">
-              <div className="base">
-                <button className="button-6">登録</button>
-              </div>
-            </div>
-            <button className="cancel-button">
-              <button className="button-wrapper">
-                <button className="button-7">CANCEL</button>
-              </button>
-            </button>
-          </div>
-          <div className="group">
-            <div className="div-wrapper">
-              <div className="text-wrapper-8">入力</div>
-            </div>
-            <div className="rectangle" />
-          </div>
-        </div>
-        <div className="select-input-content">
-          <div className="divider-horizontal-wrapper">
-            {/* <DividerHorizontal className="divider-horizontal-instance" divider="divider-2.svg" /> */}
-          </div>
-          <div className="section-input">
-            <div className="select-input">
-              <div className="container-wrapper">
-                <div className="container">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">Label</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="input-2">
-                <div className="container">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">Label</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="text-wrapper-10">募集ポジション</div>
-              <div className="text-wrapper-11">連絡方法</div>
-              <div className="text-field">
-                <div className="content-wrapper">
-                  <div className="content">
-                    <div className="text-wrapper-7">Value</div>
-                  </div>
-                </div>
-                <div className="label-container">
-                  <div className="label">{""}</div>
-                </div>
-              </div>
-            </div>
-            <div className="select-input-2">
-              <div className="input-3">
-                <div className="container-2">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">Label</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="text-wrapper-12">技術スタック</div>
-              <div className="text-wrapper-13">募集締切日</div>
-              <div className="overlap-group-3">
-                <div className="text-field-2">
-                  <div className="input-4">
-                    <div className="content">
-                      <div className="text-wrapper-7">Value</div>
-                    </div>
-                  </div>
-                  <div className="label-container">
-                    <div className="label">{""}</div>
-                  </div>
-                </div>
-                <img className="img" alt="Select input" src="select-input-calendar-icon.svg" />
-              </div>
-            </div>
-            <div className="select-input-3">
-              <div className="container-wrapper">
-                <div className="container">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">Label</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="input-2">
-                <div className="container">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">Label</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="text-wrapper-10">進行方式</div>
-              <div className="text-wrapper-11">進行期間</div>
-            </div>
-            <div className="select-input-4">
-              <div className="container-wrapper">
-                <div className="container">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">スタディ/プロジェクト</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="input-2">
-                <div className="container">
-                  <div className="min-height-2" />
-                  <div className="text-wrapper-9">Label</div>
-                  <div className="min-width-2" />
-                  {/* <ArrowDropDownFilled className="arrow-drop-down" /> */}
-                </div>
-              </div>
-              <div className="text-wrapper-10">募集区分</div>
-              <div className="text-wrapper-11">募集人員</div>
-            </div>
-          </div>
-        </div>
-        <div className="head">
-          <div className="head-title-icon">
-            <img className="img-2" alt="Element" src="1.png" />
-            <div className="min-width-3" />
-          </div>
-          <div className="head-title-text">プロジェクトに関して紹介してください</div>
-        </div>
-        <div className="head-title">
-          <div className="head-title-icon">
-            <img className="img-3" alt="Element" src="image.png" />
-            <div className="min-width-3" />
-          </div>
-          <div className="head-title-text-2">プロジェクトの基本情報を入力してください。</div>
-        </div>
-        {/* <Header MYToy="MY-TOY.svg" className="header-instance" line="line-1-2.svg" /> */}
-      </div>
-    </div>
+    <Container component="main" maxWidth="md">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Step />
+
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={1}>
+
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+          </Grid>
+          <Grid item xs={12} sm={11}>
+            <Typography component="h1" variant="h5">
+              <h5>プロジェクトの基本情報を入力してください。</h5>
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Grid container spacing={2}>
+
+            <Grid item xs={12} sm={6}>
+              <h5>募集区分</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-genre">スタディ/プロジェクト</InputLabel> */}
+                <Select
+                  labelId="register-input-genre"
+                  id="register-input-genre"
+                  value={"genre"}
+                  label="genre"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={""}>スタディ/プロジェクト</MenuItem>
+                  <MenuItem value={"スタディ"}>スタディ</MenuItem>
+                  <MenuItem value={"プロジェクト"}>プロジェクト</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+
+              <h5>募集人員</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-person">募集人員</InputLabel> */}
+                <Select
+                  labelId="register-input-person"
+                  id="register-input-person"
+                  value={"person"}
+                  label="person"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>1人</MenuItem>
+                  <MenuItem value={2}>2人</MenuItem>
+                  <MenuItem value={3}>3人</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+
+              <h5>募集区分</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-genre">スタディ/プロジェクト</InputLabel> */}
+                <Select
+                  labelId="register-input-recruit-stack"
+                  id="register-input-recruit-stack"
+                  value={"recruit-stack"}
+                  label="recruit-stack"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={""}>バックエンド/フロントエンド</MenuItem>
+                  <MenuItem value={"バックエンド"}>バックエンド</MenuItem>
+                  <MenuItem value={"フロントエンド"}>フロントエンド</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <h5>進行方式</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-person">募集人員</InputLabel> */}
+                <Select
+                  labelId="register-input-way"
+                  id="register-input-way"
+                  value={"way"}
+                  label="way"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>短期</MenuItem>
+                  <MenuItem value={2}>長期</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <h5>技術スタック</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-person">募集人員</InputLabel> */}
+                <Select
+                  labelId="register-input-way"
+                  id="register-input-way"
+                  value={"way"}
+                  label="way"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>短期</MenuItem>
+                  <MenuItem value={2}>長期</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <h5>募集ポジション</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-person">募集人員</InputLabel> */}
+                <Select
+                  labelId="register-input-way"
+                  id="register-input-way"
+                  value={"way"}
+                  label="way"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>短期</MenuItem>
+                  <MenuItem value={2}>長期</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <h5>連絡方法</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-person">募集人員</InputLabel> */}
+                <Select
+                  labelId="register-input-way"
+                  id="register-input-way"
+                  value={"way"}
+                  label="way"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>短期</MenuItem>
+                  <MenuItem value={2}>長期</MenuItem>
+                </Select>
+
+                
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <h5>連絡方法</h5>
+              <FormControl fullWidth>
+                {/* <InputLabel id="register-input-person">募集人員</InputLabel> */}
+                <Select
+                  labelId="register-input-way"
+                  id="register-input-way"
+                  value={"way"}
+                  label="way"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>短期</MenuItem>
+                  <MenuItem value={2}>長期</MenuItem>
+                </Select>
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+              </FormControl>
+            </Grid>
+
+            <Grid container justifyContent="flex-end">
+              <Grid item xs={2}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  次に
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
   );
 }
