@@ -6,13 +6,13 @@ import StepLabel from '@mui/material/StepLabel';
 
 const steps = [
   'Step 1 基本情報を入力',
-  'Step 2  プロジェクト情報を入力',
+  'Step 2 プロジェクト情報を入力',
   'Step 3 登録完了',
 ];
 
 export default function HorizontalLinearAlternativeLabelStepper() {
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' , fontSize: '1.2rem' , fontColor: '#fff'}}>
       <Stepper activeStep={1} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
